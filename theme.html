@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <style>
+  .clearfix:after {
+	  content: "";
+	  display: table;
+	  clear: both;
+	}
+body{
+  padding: 20px;
+}
+:root{
+--primaryColor: #d45200;
+--standardPadding : 20px;
+--borderunit: 2px;
+--borderstyle : solid;
+--bordercolor: #000;
+}
+
+p{
+background-color: var(--primaryColor);
+padding: var(--standardPadding);
+border: var(--borderunit) var(--borderstyle) var(--bordercolor)
+}
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+</head>
+<body>
+	 <div class="primary"> 
+	   <p>hai welcome</p>  
+	 </div>
+	<button onclick="changeTheme('theme1')">
+	Theme1
+	</button>
+	<button onclick="changeTheme('theme2')">
+	Theme2
+	</button>
+	<button onclick="changeTheme('global')">
+	reset
+	</button>
+ <script>
+	var root = document.querySelector(':root'); 
+function changeTheme(themetype){
+	var theme1 = {"primary_color":"#88d8b0","padding":"20px","border_unit":"10px","border_style":"dotted","border_color":"red"};
+  var theme2 = {"primary_color":"#ccdd44","padding":"10px","border_unit":"5px","border_style":"solid","border_color":"green"};
+  var global = {"primary_color":"#d45200","padding":"20px","border_unit":"2px","border_style":"solid","border_color":"#000"};
+  setTheme(eval(themetype));
+}
+function setTheme(theme){
+	root.style.setProperty('--primaryColor', theme.primary_color)
+  root.style.setProperty('--standardPadding', theme.padding)
+    root.style.setProperty('--borderunit', theme.border_unit)
+      root.style.setProperty('--borderstyle', theme.border_style)
+        root.style.setProperty('--bordercolor', theme.border_color)
+}
+
+	
+  </script>
+</body>
+</html>
